@@ -170,9 +170,13 @@ app.post("/login", (req, res) => {
   });
 });
 // App listen
-app.listen(3000, () => {
-  console.log("Server started on port 3000");
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port, ()=> {
+  console.log("Server started on host");
 });
 
-// In this app, I learnt how to use hashing methods such as MD5, bcrypt and passport.js
+// With this app, I learnt how to use hashing methods such as MD5, bcrypt and passport.js
 // The methods I learnt about was encryption, hashing and salting, and the use of environment variables
